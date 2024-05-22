@@ -2,13 +2,21 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
     
 }
 
 body{
         font-family: "Bebas Neue", Arial, Helvetica, sans-serif     ;  
-        background-color: #c95a05fb;
+        background-image: url(images/bg.png);
+        background-size: cover;
+        background-position: center;
         overflow-x: hidden;
+     
+}
+section{
+    min-height: 100vh;
+    overflow: hidden;
 }
 .header{
     display: flex;
@@ -16,6 +24,9 @@ body{
     justify-content: space-between;
     width: 100%;
     height: 75px;
+    background-color: whitesmoke;
+    z-index: 9999;  
+    position: absolute;
 }
 
 .logo{
@@ -29,7 +40,7 @@ body{
     font-size: 2rem;
     font-weight: bold;
     font-style: italic; 
-    color: #ffff;
+    color: black;
     position: absolute;
     top: 10px;
     left: 130px;
@@ -39,39 +50,7 @@ body{
     width: 180px;
     height: 100px;
 }
-nav{
-    z-index: 9999;
- 
-}
 
-nav ul{
-    display: flex;
-    list-style: none;
-
-}
-li a {
-    display: inline-block;
-    padding:0 20px;
-    font-size: 1.5rem;
-    text-decoration: none;
-    color:#ffff;
-    font-weight: 600;
-    transition: .3s;
-    
-     
-}
-li a:after{
-    content: '';
-    width: 0px;
-    height: 3px;
-    background-color: #ffff;
-    display: block;
-    transition: .3s;    
-
-}
-li a:hover::after{
-    width: 100%;
-}
 .category{
     margin-right: 40px;
 }
@@ -87,82 +66,180 @@ button{
     border: 2px solid black;
     font-weight: 500;
     transition: .3s;
+   
   
 
 
 }
 button:hover{
-    background-color: #df3030;
+    background-color: #017143;
     color: white;
     border-top-right-radius: 5px;
-}   
+}
 section{
     min-height: 100vh;
-    overflow: hidden;}
-    section #animate{
-        transition: 2s;
+    overflow: hidden;
+}
+section #animate{
+    transition: 3s;
+}
+.sec-1 #animate{
+    transform: translateY(200px);
+    opacity: 0;
+}
+.sec-1.show-animate #animate{
+    transform: translateY(0);
+    opacity: 1;
+}
+.sec-1{
+    position: relative;
+   
+}
+section #animate{
+   transition: 1.4s;
+}
+.sec-2 #animate{
+     transform: translateY(50px);
+     opacity: 0;
+}
+.sec-2.show-animate #animate{
+    transform: translateY(0);
+    opacity: 1;
+}
+section #animatepic{
+    transition: 1s;
+ }
+ .sec-2 #animatepic{
+      transform: rotateZ(180deg);
+      opacity: 0;   
+ }
+ .sec-2.show-animate #animatepic{
+     transform: rotateZ(360deg);
+     opacity: 1;
+ }
+ section #animate{
+    transition: 1s;
+ }
+ .sec-3 #animate{
+      transform: translateY(-100px);
+      opacity: 0;   
+ }
+ .sec-3.show-animate #animate{
+     transform: translateY(0);
+     opacity: 1;
+ }
+.high-protein{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    color: rgb(192, 190, 190);
+    align-items: center;
+    justify-content: center;
+   left: 230px;
+   top:30px;    
+}   
+.high-protein .high-pro{
+ 
+    font-weight: 900;
+    font-size: 11rem;
+    line-height:160px;
+    color: whitesmoke;
+    text-shadow: 1px 1px 1px #c5c4c4,
+    1px 2px 1px #c5c4c4,  
+    1px 3px 1px #c5c4c4,
+    1px 4px 1px#c5c4c4,                   
+    1px 5px 1px #c5c4c4;
+    letter-spacing: 8px;
+}
+
+.section-one{
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    min-height: 100;
+    width: 100%;
+    position: absolute;
+    top: -5%;
+    left: 60px;
+    
+    
+}
+.one-container{
+    position: relative;
+    top: 150px;
+    width: 70%;
+    
+    height:420px;
+    box-shadow: .5rem 8px 10px rgb(0,0,0,0.3);
+    border-radius: 25px;
+    background-color: whitesmoke ;
+    animation: toright .7s  .1s;
+    border: 1px solid rgb(54, 54, 54);
+}
+.one-container .imahe{
+    position: absolute;
+    top: 10px;
+    left:-32%;
+    filter: drop-shadow(.5rem 5px 10px rgb(0,0,0,.2));
+    animation: rotate .8s  .1s ;
+}
+@keyframes rotate {
+    0%{
+        transform: rotate(0deg);
     }
-    .sec-1 #animate{
+    100%{
+        transform: rotateZ(360deg);
+    }
+    
+}
+.img-content{
+   color: rgb(0, 0, 0);
+   position: absolute;
+   top: 5px;
+   width: 540px;
+   display: flex;
+   flex-direction: column;  
+   align-items: center;
+   justify-content: center;    
+   margin-left: 240px;
+  animation: toright .7s  .1s;
+
+}
+@keyframes toright{
+    from{
         opacity: 0;
+        transform: translateX(-200px);
     }
-    .sec-1.show-animation #animate{
-        opacity: 1;
-    }
-    section #animatepic{
-        transition: 2s;
-    }
-    .sec-1 #animatepic{
-        transform: rotateY(300deg);
-        opacity: 0;
-    }
-    .sec-1.show-animation #animatepic{
-        transform: rotateY(360deg);
-        opacity: 1;
-    }
-     section:nth-child(2) #animate
-     {
-        transition: 1s;
-     }
-     .sec-2 #animate{
-        transform: translateY(150px);
-        opacity: 0;
-    }
-    .sec-2.show-animation #animate{
-        transform: translateY(0);
-        opacity: 1;
-    }
-    section:nth-child(3) #animatehigh
-    {
-        
-       transition: 1s;
-    }
-    .sec-3 #animatehigh{
-       opacity: 0;
-       transform: translateY(-100px);
-    }
-    .sec-3.show-animation #animatehigh{
-       opacity: 1;
-       transform: translateY(0);
-    }
-    section:nth-child(3) #animate
-    {
-       transition: 1s;
-    }
-    .sec-3 #animate{
-        transform: translateY(200px);
-       opacity: 0;
-    }
-    .sec-3.show-animation #animate{
-        transform: translateY(0);
-       opacity: 1;
-    }
+   to{
+    opacity: 1;
+    transform: translateX(0);
+   }    
+}
+.img-content .food-name{
+    background-image: url(images/textbg.png);
+    color: transparent;
+    background-size: cover;
+    -webkit-background-clip: text;
+   font-size: 7rem;
+   animation: toright .5s timing-function .9s iteration-count direction fill-mode;
+}
+.img-content .info{
+ 
+    font-size: 15px;
+  color: rgb(26, 26, 26);
+  animation: toright .5s timing-function .9s iteration-count direction fill-mode;
+}
+.sec-2{
+ position: relative;
+}
 .protein-hero{
     position: relative;
+    background-color: #017143  ;
 }
 .protein-container{
-    height: 95vh;
+    height: 100vh;
     width: 100%;
-
+    
 
 }
 .protein-content{
@@ -171,56 +248,52 @@ section{
     align-items: center;
     flex-direction: column;
     line-height:180px;
+    letter-spacing: 2px;
     font-family: Radio Canada Big;
+    padding-top:35px;
 }
 .protein-content span{
     font-size: 13rem;
     font-weight: bold;
     font-weight: 900;
     letter-spacing: 2px;
-    color: #d6a419;
-    text-shadow: 1px 1px 1px #919191,
-                 1px 2px 1px #919191,  
-                 1px 3px 1px #919191,
-                 1px 4px 1px #919191,                   
-                 1px 5px 1px #919191,
-                 1px 6px 1px #919191,
-                 1px 7px 1px #919191,
-                 1px 8px 1px #919191,
-                 1px 9px 1px #919191,
-                 1px 10px 1px #919191;
+    color:#017143;
+    text-shadow: 1px 1px 1px    rgb(145, 143, 143),
+                 1px 2px 1px  rgb(145, 143, 143),
+                 1px 3px 1px  rgb(145, 143, 143);
+          
 
 }
 .protein-content img{
     width: 480px;
     height: 400px;
     position: absolute;
-    top:75px;
+    top:110px;
     right: 360px;
     filter: drop-shadow(.2rem 3px 6px rgb(0,0,0,.3));
 }
 .protein-leftc{
-  position: absolute;
-  top: 25px;
+  position: absolute;   
+  top: 50px;
   left: 30px;
   font-family: Radio Canada Big;
 
 }   
 .protein-container .nutri{
     font-size: 3.5rem;
-    color: #ffff;
+    color:#ffff;
     width: 500px;
-    font-weight: 900;
+    font-weight: 900px;
     text-shadow: .5rem 4px 10px rgb(0,0,0,.1);
-    font-style: oblique;
+    
 }
 .red-card{
-    background-color: #df3030;
+    background-color: whitesmoke;
     height: 55px;
     width: 180px;
-    transform: skewX(-20deg);
+
     text-align: center;
-    color: white;
+    color: #017143;
     position: absolute;
     top:10px;
     left:264px;
@@ -238,22 +311,22 @@ section{
 }
 .steak-definition{
     color: white;
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-     width: 300px;
+    font-size: 1.2rem;
+    margin-bottom: 50px;
+     width: 280px;
 }
 
 .bottom-part{
     display: flex;
-    
     flex-direction: column;
     width: 400px;
 }
 .bottom-part .nutrients{
-    font-size: 3rem;
+    font-size: 3.1rem;
+    margin-bottom: 5px;
     line-height: 50px;
     color: white;
-    font-style: oblique;
+    font-weight: 900;
     letter-spacing: 2px;
     text-shadow: .5rem 5px 5px rgb(0,0,0,0.1);
     
@@ -261,10 +334,10 @@ section{
 .bottom-part .red{
     height: 50px;
     width: 220px;
-  
-    transform:skewX(-20deg);
-    color: white;
+     background-color: whitesmoke;
+    color: #017143;
     margin-left: 5px;
+    
 }
 .red .text-per{
     font-size: 2rem;
@@ -275,28 +348,19 @@ section{
 .nutrie-grams{
     display: flex;
     flex-direction: column;
-    color: white;
+    color:  white;
 }
 .nutrie-grams .facts{
     font-size: 1.2rem;
     font-weight: 700;
     line-height: 25px;
 }
-.btn-ing{
-    border-radius: 0px;
-    width: 130px;
-    height: 40px;
-    border: none;
-    font-weight: 500;
-    font-family:Radio Canada Big;;
-    padding: 5px 20px;
-    
-}
+
 .protein-rightc{
     position: absolute;
-    width: 30%;
-    right: 20px;
-    top: 30px;
+    width: 35%;
+    right: 30px;
+    top: 70px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -306,122 +370,49 @@ section{
    
 }
 .red{
-    background-color: #df3030;
-    width: 260px;
+    background-color: whitesmoke;
+    width: 280px;
     height: 65px;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     box-shadow: .5rem 3px 10px rgb(0,0,0,0.2);
- 
+    margin-left: 20px;
 }
 .direction{
     font-size: 3rem;
-}
-.protein-rightc p
-{
-    font-size: 1.1rem;
-    text-align: justify;
-    text-indent: 5px;
-    margin-bottom: 20px;
-}
+    color: #017143;
+    margin-bottom: 40px;
+   
 
-.sec-2{
-    position: relative;
-    background-color: rgb(251, 248, 248);
 }
-.high-protein{
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    color: rgb(225, 220, 220);
-    align-items: center;
-    justify-content: center;
-   left: 150px;
-   top:70px;
-}
-.high-protein .high-pro{
-    font-weight: 900;
-    font-size: 8.5rem;
-    line-height:160px;
-    text-shadow: 1px 1px 1px #919191,
-    1px 2px 1px #919191,  
-    1px 3px 1px #919191,
-    1px 4px 1px #919191,                   
-    1px 5px 1px #919191,
-    1px 6px 1px #919191,
-    1px 7px 1px #919191,
-    1px 8px 1px #919191,
-    1px 9px 1px #919191,
-    1px 10px 1px #919191;
-    letter-spacing: 8px;
-}
-.section-two{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-    position: absolute;
+.protein-rightc .ingre
+{
+    width: 350px;
+    font-size: 1.2rem;
+    text-align: justify;
+    margin-left: 40px;
+    line-height: 25px;
+    margin-bottom: 20px;
     
 }
-.two-container{
-    position: relative;
-    width: 70%;
-    height:300px;
-    box-shadow: .5rem 8px 10px rgb(0,0,0,0.3);
-    backdrop-filter: blur(8px);
-    border: 1px double black ;
-}
-.two-container .imahe{
-    position: absolute;
-    top: -15%;
-    right:-26%;
-    filter: drop-shadow(.5rem 5px 10px rgb(0,0,0,.2));
-}
-.img-content{
-   color: rgb(0, 0, 0);
-   position: absolute;
-   top: 10px;
-   width: 540px;
-   display: flex;
-   flex-direction: column;  
-   align-items: center;
-   justify-content: center;    
-   margin-left:60px;
 
-}
-.img-content .food-name{
-   font-size: 6rem;
-   text-shadow: 1px 1px 1px #ffff,
-   1px 2px 1px #919191,  
-   1px 3px 1px #919191,
-   1px 4px 1px #919191,                   
-   1px 5px 1px #919191,
-   1px 6px 1px #919191,
-   1px 7px 1px #919191,
-   1px 8px 1px #919191,
-   1px 9px 1px #919191,
-   1px 10px 1px #919191;
-   margin-bottom: 15px;
-}
-.img-content .info{
-    font-size: 1.3rem;
-}
+  
+
 .section-three{
     text-align: center;
-   background-color:#ffff;
+position: relative;
 }
 
 .section-three .let{
-
+    margin-top: 0;
     text-align: center;
     font-size: 9rem;
     letter-spacing: 3px;
-    color: black;
     background-image: url(images/textbg.png);
     color: transparent;
-    background-size: cover;
+    
     -webkit-background-clip: text;
+    
 }
 .chs-meal{
     display: flex; 
@@ -476,9 +467,9 @@ section{
    .card-content:active{
      color:whitesmoke;
     }
-   .card-content h1 {   
-    font-size: 5rem;
-    margin-top:100px;   
+   .card-content h1 {
+       font-size: 5rem;
+       margin-top:100px;
        padding-top: 40px;
        color: white;
        text-transform: capitalize;
